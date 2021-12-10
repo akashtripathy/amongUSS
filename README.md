@@ -1,10 +1,10 @@
-# vtogethernew
+# amongUSS
 
-A new Flutter application.
+A new Dating Application developed in Fluttre.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is developed by me(Akash Tripathy) for my college project.
 
 A few resources to get you started if this is your first Flutter project:
 

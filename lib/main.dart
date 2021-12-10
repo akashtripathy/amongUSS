@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:vtogethernew/src/pages/splashScreen.dart';
+import 'package:flutter_config/flutter_config.dart';
 
 Future<void> _messageHandler(RemoteMessage message) async {
   print('background message ${message.notification.body}');
@@ -9,6 +10,7 @@ Future<void> _messageHandler(RemoteMessage message) async {
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await FlutterConfig.loadEnvVariables(); //load .env variables
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(_messageHandler);
   /*SharedPreferences pref=await SharedPreferences.getInstance();

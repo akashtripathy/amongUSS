@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_config/flutter_config.dart';
 
 class ApiService{
-  String url ="http://stock19.xyz/vtogether/api/";
+  String url = FlutterConfig.get('API_URL');
   /*sendOtp(mob) async{
     var server=await http.post(
       Uri.parse(url+"api_otp"),

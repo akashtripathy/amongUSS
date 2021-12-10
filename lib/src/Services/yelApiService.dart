@@ -1,12 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_config/flutter_config.dart';
 
 class YelpApi{
   getRestaurantNearMe() async {
     var server= await http.get(
       Uri.parse("https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972"),
       headers: {
-        "Authorization":"Bearer r859n5rZrOZrqKyO64k6FEXfe9vZNQrqEcJsRPYtYHMG7ON33hz3lNnUbHEnmsKnrMyVRQiMieiLPfKR8frm3b3UnzMdT7HSeplgA3iNTvV17IAFO1MRUUOrb_alYHYx"
+        "Authorization": FlutterConfig.get('YELP_AUTH_KEY')
       }
     );
     return jsonDecode(server.body);
@@ -16,7 +17,7 @@ class YelpApi{
     var server= await http.get(
         Uri.parse("https://api.yelp.com/v3/businesses/search?term=$term&latitude=37.786882&longitude=-122.399972&price=$price&radius=$distance"),
         headers: {
-          "Authorization":"Bearer r859n5rZrOZrqKyO64k6FEXfe9vZNQrqEcJsRPYtYHMG7ON33hz3lNnUbHEnmsKnrMyVRQiMieiLPfKR8frm3b3UnzMdT7HSeplgA3iNTvV17IAFO1MRUUOrb_alYHYx"
+          "Authorization": FlutterConfig.get('YELP_AUTH_KEY')
         }
     );
     return jsonDecode(server.body);
@@ -26,7 +27,7 @@ class YelpApi{
     var server= await http.get(
         Uri.parse("https://api.yelp.com/v3/events?latitude=37.786882&longitude=-122.399972"),
         headers: {
-          "Authorization":"Bearer r859n5rZrOZrqKyO64k6FEXfe9vZNQrqEcJsRPYtYHMG7ON33hz3lNnUbHEnmsKnrMyVRQiMieiLPfKR8frm3b3UnzMdT7HSeplgA3iNTvV17IAFO1MRUUOrb_alYHYx"
+          "Authorization": FlutterConfig.get('YELP_AUTH_KEY')
         }
     );
     return jsonDecode(server.body);
